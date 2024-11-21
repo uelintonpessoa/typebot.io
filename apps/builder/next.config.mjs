@@ -57,19 +57,6 @@ const nextConfig = {
     config.resolve.alias["isolated-vm"] = false;
     return config;
   },
-  headers: async () => {
-    return [
-      {
-        source: "/(.*)?",
-        headers: [
-          {
-            key: "X-Frame-Options",
-            value: "SAMEORIGIN",
-          },
-        ],
-      },
-    ];
-  },
   async rewrites() {
     return process.env.NEXT_PUBLIC_POSTHOG_KEY
       ? [
